@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>AMS Login Portal</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>Login</p>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#" class="link" onclick="showHome()">Home</a></li>
+                    <li><a href="#" class="link">Services</a></li>
+                    <li><a href="#" class="link" onclick="showAbout()">About</a></li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                <button class="btn" id="loginBtn" onclick="showStudentLogin()">Students Login</button>
+                <button class="btn" id="registerBtn" onclick="showTeacherLogin()">Teachers Login</button>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <!-- Instruction Section for Mobile Users -->
+        <div id="instructionSection" style="display:block;">
+            <h2>Please switch to Desktop site for better experience</h2>
+            <p>This portal works best on desktop. Please click the button below once you have switched to desktop mode:</p>
+            <button id="continueButton" onclick="showLoginOptions()">Continue to Login</button>
+        </div>
+
+        <!-- Home Section -->
+        <div id="homeSection" style="display:none;">
+            <h2>Welcome to AMS Login Portal</h2>
+            <p>Welcome to the AMS Login Portal. Please choose to login as a Student or Teacher.</p>
+        </div>
+
+        <!-- Form box -->
+        <div class="form-box">
+            <!-- Student login form -->
+            <div class="login-container" id="studentLogin" style="display:none;">
+                <div class="top">
+                    <header>Students Login</header>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Registration No" id="studentUsername" pattern="\d*" title="Please enter only numbers.">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field" placeholder="DOB(DD-MM-YYYY)" id="studentPassword">
+                    <i class="bx bx-lock-alt"></i>
+                    <i class="bx bx-show" id="toggleStudentPassword" onclick="toggleStudentPassword()"></i> <!-- Eye icon for toggle -->
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Log In" onclick="login(event, 'student')">
+                </div>
+                <div class="two-col">
+                    <div class="one">
+                        <input type="checkbox" id="student-check">
+                        <label for="student-check"> Remember Me</label>
+                    </div>
+                    <div class="two">
+                        <label><a href="#" onclick="showForgotPassword()">Forgot password?</a></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teacher login form -->
+            <div class="login-container" id="teacherLogin" style="display: none;">
+                <div class="top">
+                    <header>Teachers Login</header>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Teacher ID" id="teacherUsername">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field" placeholder="Password" id="teacherPassword">
+                    <i class="bx bx-lock-alt"></i>
+                    <i class="bx bx-show" id="toggleTeacherPassword" onclick="toggleTeacherPassword()"></i> <!-- Eye icon for toggle -->
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Log In" onclick="login(event, 'teacher')">
+                </div>
+                <div class="two-col">
+                    <div class="one">
+                        <input type="checkbox" id="teacher-check">
+                        <label for="teacher-check"> Remember Me</label>
+                    </div>
+                    <div class="two">
+                        <label><a href="#">Forgot password?</a></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forgot Password Modal -->
+        <div id="forgotPasswordModal" class="modal">
+            <div class="modal-content">
+                <h2>Sorry! You can't restart the password</h2>
+                <button onclick="closeForgotPasswordModal()">OK</button>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div id="aboutSection" style="display:none; padding: 10px;">
+            <h2>Aalim Muhammed Salegh College of Engineering</h2>
+            <p>Aalim Muhammed Salegh College of Engineering (AMSCE) is a premier institution offering undergraduate engineering. The campus has five academic blocks specializing in CSE/IT, ECE, EEE, Mech/Civil, and a block for first-year students. The well-planned layout of the campus maximizes the utilization of space, providing a perfect atmosphere for learning and research.</p><br></br>
+            <p>Founded with the vision to nurture young engineers who will contribute to global technological advancements, AMSCE prides itself on its dedicated faculty, state-of-the-art facilities, and excellent student outcomes.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
