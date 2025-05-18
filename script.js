@@ -23,7 +23,7 @@ function login(event, userType) {
     if (username && password) {
         alert('Login successful!');
         // Redirect to another website (for example)
-        window.location.href = 'https://codepen.io/pen'; // Change this to your desired URL
+        window.location.href = 'exmple.com'; // Change this to your desired URL
     } else {
         alert('Please enter both username and password.');
     }
